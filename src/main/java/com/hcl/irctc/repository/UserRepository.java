@@ -7,5 +7,7 @@ import com.hcl.irctc.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
+	
+	public User findUserByUserNameAndPassword(String userName,String password);
 
 }

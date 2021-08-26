@@ -18,22 +18,19 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy =GenerationType.AUTO )
 	private int bookingId;
-	
-	@Column(name="train_id")
+
 	@ManyToOne
 	private Train train;
-	
-	@Column(name="user_id")
+
 	@ManyToOne
 	private User user;
 	
 	@Column(name="total_price")
-	private int totalPrice;
+	private float totalPrice;
 	
 	@Column(name="date")
 	private String date;
 	
-	@Column(name="list_of_passengers")
 	@OneToMany
 	private List<Passenger> passengersList;
 
@@ -61,11 +58,11 @@ public class Booking {
 		this.user = user;
 	}
 
-	public int getTotalPrice() {
+	public float getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(float totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 
@@ -85,7 +82,7 @@ public class Booking {
 		this.passengersList = passengersList;
 	}
 
-	public Booking(int bookingId, Train train, User user, int totalPrice, String date, List<Passenger> passengersList) {
+	public Booking(int bookingId, Train train, User user, float totalPrice, String date, List<Passenger> passengersList) {
 		super();
 		this.bookingId = bookingId;
 		this.train = train;
@@ -98,7 +95,7 @@ public class Booking {
 	public Booking() {
 		super();
 	}
-	
+
 	
 
 }

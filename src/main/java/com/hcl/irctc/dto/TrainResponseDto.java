@@ -1,44 +1,30 @@
-package com.hcl.irctc.model;
+package com.hcl.irctc.dto;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="train")
-public class Train {
+import com.hcl.irctc.model.Day;
+
+public class TrainResponseDto {
+
 	
-	public Train() {
+	public TrainResponseDto() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int trainId;
-	
-	@Column(name="train_number")
+
 	private int trainNumber;
-	
-	@Column(name="train_name")
+
 	private String trainName;
-	
-	@Column(name="source")
+
 	private String source;
-	
-	@Column(name="destination")
+
 	private String destination;
-	
-	@Column(name="cost_per_seat")
+
 	private float costPerSeat;
-	
-	@Column(name="seats")
+
 	private int seats;
 	
 	@Enumerated(EnumType.STRING)
@@ -46,7 +32,7 @@ public class Train {
 
 	
 	
-	public Train(int trainId, int trainNumber, String trainName, String source, String destination, float costPerSeat,
+	public TrainResponseDto(int trainId, int trainNumber, String trainName, String source, String destination, float costPerSeat,
 			int seats, Day day) {
 		super();
 		this.trainId = trainId;
@@ -124,6 +110,4 @@ public class Train {
 	}
 
 	
-	
-
 }

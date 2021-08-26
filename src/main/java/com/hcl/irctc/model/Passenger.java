@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +30,9 @@ public class Passenger {
 	
 	@Column(name="address")
 	private String address;
+	
+	@ManyToOne
+	private User user;
 
 	public int getPassengerId() {
 		return passengerId;
@@ -62,11 +66,11 @@ public class Passenger {
 		this.gender = gender;
 	}
 
-	public long getAadharNo() {
+	public Long getAadharNo() {
 		return aadharNo;
 	}
 
-	public void setAadharNo(long aadharNo) {
+	public void setAadharNo(Long aadharNo) {
 		this.aadharNo = aadharNo;
 	}
 
@@ -78,12 +82,21 @@ public class Passenger {
 		this.address = address;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Passenger() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Passenger(int passengerId, String passengerName, int age, String gender, long aadharNo, String address) {
+	public Passenger(int passengerId, String passengerName, int age, String gender, Long aadharNo, String address,
+			User user) {
 		super();
 		this.passengerId = passengerId;
 		this.passengerName = passengerName;
@@ -91,8 +104,9 @@ public class Passenger {
 		this.gender = gender;
 		this.aadharNo = aadharNo;
 		this.address = address;
+		this.user = user;
 	}
-	
+
 	
 
 }

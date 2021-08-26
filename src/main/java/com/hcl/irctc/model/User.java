@@ -19,6 +19,9 @@ public class User {
 	@Column(name="user_name")
 	private String userName;
 	
+	@Column(name="password")
+	private String password;
+	
 	@Column(name="otp")
 	private int otp;
 	
@@ -26,7 +29,7 @@ public class User {
 	private String mailId;
 	
 	@Column(name="mobile_no")
-	private int mobileNo;
+	private Long mobileNo;
 
 	public int getUserId() {
 		return userId;
@@ -60,18 +63,27 @@ public class User {
 		this.mailId = mailId;
 	}
 
-	public int getMobileNo() {
+	public Long getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(int mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 
-	public User(int userId, String userName, int otp, String mailId, int mobileNo) {
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public User(int userId, String userName,String password, int otp, String mailId, Long mobileNo) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
+		this.password=password;
 		this.otp = otp;
 		this.mailId = mailId;
 		this.mobileNo = mobileNo;
